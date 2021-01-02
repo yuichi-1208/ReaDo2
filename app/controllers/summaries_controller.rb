@@ -69,6 +69,6 @@ class SummariesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def summary_params
-      params.fetch(:summary, {})
+      params.require(:summary).permit(:content)
     end
 end
