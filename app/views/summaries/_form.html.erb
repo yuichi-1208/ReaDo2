@@ -1,22 +1,52 @@
-<%= form_with(model: summary, local: true) do |form| %>
+<div class="container">
+<%= form_with(model: [book, summary], local: true) do |form| %>
   <% if summary.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(summary.errors.count, "error") %> prohibited this summary from being saved:</h2>
-
-      <ul>
-        <% summary.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+      <% summary.errors.full_messages.each do |message| %>
+        <h4><%= message %></h4>
+      <% end %>
     </div>
   <% end %>
 
-  <div class='field'>
-    <%= form.label :content %>
-    <%= form.rich_text_area :content %>
-  </div>
+  <table class="summary-create-table">
+  <tr class="book-detail">
+    <td class="book-image">
+      <%= image_tag(@book.image_url)%>
+    </td>
+    <td class="book-desc">
+      <p>
+        <span class="book-title"><%= t('view.title') %>　</span>
+        <span class="book-ex"><%= @book.title%></span>
+      </p>
+      <p>
+        <span class="book-title"><%= t('view.author') %>　　　</span>
+        <span class="book-ex"><%= @book.author%></span>
+      </p>
+      <p>
+        <span class="book-title"><%= t('view.publisher') %>　　</span>
+        <span class="book-ex"><%= @book.publisher%></span>
+      </p>
+      <p>
+        <span class="book-title"><%= t('view.publisher') %>　　</span>
+        <span class="book-ex"><%= @book.caption%></span>
+      </p>
+      <p>
+        <span class="book-title"><%= t('view.publisher') %>　　</span>
+        <span class="book-ex"><%= @book.chirayomi%></span>
+      </p>
+      <p class="create-category">
+      </p>
+    </td>
+  </tr>
+  </table>
 
-  <div class="actions">
-    <%= form.submit %>
+  <hr>
+    <div>
+      <%= form.rich_text_area :content %>
+    </div>
+
+    <div class="center">
+      <%= form.submit t('view.submit'), class:"search-submit" %>
+    </div>
   </div>
 <% end %>

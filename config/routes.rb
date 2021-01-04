@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
-  resources :summaries
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :books do
+    resources :summaries, :memos, only: [:new, :create]
+    resources :reviews
+  end
+
+  resources :summaries do
+    resources :comments
+  end
 end
