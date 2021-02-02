@@ -1,6 +1,43 @@
-<h1>Editing Summary</h1>
+<div class="container  summary-create-content">
+  <%= form_with(model: @summary, local: true) do |form| %>
+    <% if @summary.errors.any? %>
+      <div id="error_explanation">
+        <% @summary.errors.full_messages.each do |message| %>
+          <h4><%= message %></h4>
+        <% end %>
+      </div>
+    <% end %>
 
-<%= render 'form', summary: @summary %>
+    <table class="summary-create-table">
+      <tr class="book-detail">
+        <td class="book-image">
+          <%= image_tag(@book.image_url)%>
+        </td>
+        <td class="book-desc">
+          <p>
+            <span class="book-title"><%= t('view.title') %>　</span>
+            <span class="book-ex"><%= @book.title%></span>
+          </p>
+          <p>
+            <span class="book-title"><%= t('view.author') %>　　　</span>
+            <span class="book-ex"><%= @book.author%></span>
+          </p>
+          <p>
+            <span class="book-title"><%= t('view.publisher') %>　　</span>
+            <span class="book-ex"><%= @book.publisher%></span>
+          </p>
+        </td>
+      </tr>
+    </table>
 
-<%= link_to 'Show', @summary %> |
-<%= link_to 'Back', summaries_path %>
+    <hr>
+
+    <div>
+      <%= form.rich_text_area :content %>
+    </div>
+
+    <div class="center">
+      <%= form.submit t('view.update'), class:"search-submit" %>
+    </div>
+  <% end %>
+</div>

@@ -12,6 +12,7 @@
   <tbody>
     <% @summaries.each do |summary| %>
       <tr>
+        <td><%= image_tag(summary.book.image_url) %></td>
         <td><%= summary.content %></td>
         <td><%= link_to 'Show', summary %></td>
         <td><%= link_to 'Edit', edit_summary_path(summary) %></td>
@@ -23,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Summary', new_summary_path %>
+<%= link_to 'New Summary', new_book_path %>
