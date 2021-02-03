@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    models:
+      summary: 要約
+      user: ユーザー
+    attributes:
+      summary:
+        content: 内容
+        category: カテゴリー
+      memo:
+        content: メモ
+        action_plan: アクションプラン
+      user:
+        title: タイトル
+        name: ユーザーネーム
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: ログインを記憶
+        icon: プロフィール画像
+        twitter_link: Twitter URL
+        facebook_link: Facebook URL
+        instagram_link: Instagram URL
+        favorite_book: お気に入り書籍
+        cancel: キャンセル
